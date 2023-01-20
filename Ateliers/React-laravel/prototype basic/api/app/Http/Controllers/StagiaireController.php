@@ -10,6 +10,6 @@ class StagiaireController extends Controller
     //
     public function search($nom)
     {
-    return Stagiaire::where('nom', 'like', $nom.'%')->get();
+    return Stagiaire::where('nom',  'like', $nom.'%')->get();
     }
 }
