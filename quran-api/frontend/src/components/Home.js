@@ -17,28 +17,37 @@ class Home extends Component {
             this.setState({ surahs });
         })
     }
+
+    // 
     
     render() {
         return (
 
         <div>
-             <div class="container">
-            <div class="player">
-                <div class="ayah">اضغط علي السورة للاستماع اليها</div>
-                <audio src="" class="quranPlayer" controls  autoplay></audio>
-                <div class="buttons">
-                    <div class="icon next"><i class="fas fa-forward"></i></div>
-                    <div class="icon play"><i class="fas fa-play"></i></div>
-                    <div class="icon prev"><i class="fas fa-backward"></i></div>
+             <div className="container">
+            <div className="player">
+                <div className="ayah">اضغط علي السورة للاستماع اليها</div>
+                <audio src="" className="quranPlayer" controls  autoPlay></audio>
+                <div className="buttons">
+                    <div className="icon next"><i className="fas fa-forward"></i></div>
+                    <div className="icon play"><i className="fas fa-play"></i></div>
+                    <div className="icon prev"><i className="fas fa-backward"></i></div>
                 </div>
             </div>
-            <div class="surahs">
+            <div className="surahs">
 
             </div>
             </div>
 
             <ul>
-            { this.state.surahs.map(surah => <li>{surah.name}</li>)}
+            {/* arabic name next to englishname map */}
+            { this.state.surahs.map(surah => <li>{surah.name} - {surah.englishNameTranslation}</li>)}
+
+
+
+            {/* { this.state.surahs.map(surah => <li>{surah.name}</li>)}
+            { this.state.surahs.map(surah => <li>{surah.englishNameTranslation}</li>)} */}
+            
             </ul>
         </div>
         )
