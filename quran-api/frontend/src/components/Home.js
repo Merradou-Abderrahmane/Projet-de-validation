@@ -35,20 +35,17 @@ class Home extends Component {
                 </div>
             </div>
             <div className="surahs">
-
+                {this.state.surahs.map(surah => (
+                    <div className="surah-container">
+                        <div className="surah-name">{surah.name} - {surah.englishNameTranslation}</div>
+                        <div className="favorite-icon">
+                            <i className="fas fa-heart"></i>
+                        </div>
+                    </div>
+                ))}
             </div>
             </div>
 
-            <ul>
-            {/* arabic name next to englishname map */}
-            { this.state.surahs.map(surah => <li>{surah.name} - {surah.englishNameTranslation}</li>)}
-
-
-
-            {/* { this.state.surahs.map(surah => <li>{surah.name}</li>)}
-            { this.state.surahs.map(surah => <li>{surah.englishNameTranslation}</li>)} */}
-            
-            </ul>
         </div>
         )
     }
