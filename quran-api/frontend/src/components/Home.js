@@ -18,6 +18,19 @@ class Home extends Component {
         })
     }
 
+    playSurah(surah) {
+        const audio = document.querySelector('.quranPlayer');
+        audio.src = `http://api.alquran.cloud/v1/surah/${surah.number}/ar.alafasy`;
+        audio.onloadeddata = () => {
+            audio.play();
+            console.log(audio);
+        }
+        // console log to see if audio is playing
+
+
+        
+        }
+
     // 
     
     render() {
@@ -36,7 +49,7 @@ class Home extends Component {
             </div>
             <div className="surahs">
                 {this.state.surahs.map(surah => (
-                    <div className="surah-container">
+                    <div className="surah-container" onClick={() => this.playSurah(surah)}>
                         <div className="surah-name">{surah.name} - {surah.englishNameTranslation}</div>
                         <div className="favorite-icon">
                             <i className="fas fa-heart"></i>
