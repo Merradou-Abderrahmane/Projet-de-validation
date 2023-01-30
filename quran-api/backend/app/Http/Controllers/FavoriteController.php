@@ -23,11 +23,16 @@ class FavoriteController extends Controller
         $favorite->save();
     }
 
-    public function removeFavorite(Request $request)
+    public function removeFavorite(Request $request, $id)
     {
-        $favorite = Favorite::where('surah_id', $request->surah_id)->first();
-        $favorite->delete();
+        $favorite = Favorite::where('surah_id', $id)->first();
+        if ($favorite) {
+            $favorite->delete();
+            return response()->json('Deleted');
+        } else {
+            return response()->json('Item not found', 404);
+        }
     }
-}
+        }
 
 

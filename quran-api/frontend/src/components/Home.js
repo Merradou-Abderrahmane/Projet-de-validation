@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Popup from 'reactjs-popup';
 import axios from 'axios';
 
 class Home extends Component {
@@ -8,6 +9,7 @@ class Home extends Component {
         this.state = {
         surahs: [],
         favorites: [],
+        isPopupOpen: false,
         };
     }
     
@@ -60,6 +62,14 @@ class Home extends Component {
             audioPlayer.src = `https://server11.mp3quran.net/a_ahmed/${paddedSurahNumber}.mp3`;
             audioPlayer.play();
           }
+        
+        togglePopup = () => {
+            this.setState(prevState => ({
+              isPopupOpen: !prevState.isPopupOpen
+            }));
+          };
+        
+
               
     // 
     
@@ -67,8 +77,37 @@ class Home extends Component {
         return (
           <div>
             <div className="container">
+
               <div className="player">
-                <div className="ayah">اضغط علي السورة للاستماع اليها</div>
+              <div className="favorite-header">
+                    {/* <span className="favorite-header-text"> Favorites</span> */}
+                    <button className="favorite-header-text" onClick={this.togglePopup}> السور المفضلة</button>
+                    <i className="fas fa-heart" ></i>
+                    <span className="ayah">اضغط علي السورة للاستماع اليها</span>
+
+              </div>
+                <Popup open={this.state.isPopupOpen} onClose={this.togglePopup} position="right center">
+                <div className="popupContainer">
+                    <h3 className="popupHeader"> السور المفضلة</h3>
+                    <ul className="popupList">
+                    {this.state.favorites.map(favorite => (
+                        <li className="listItem">
+                        <span className="listItemText">
+                            {favorite.name} - {favorite.english_name}
+                        </span>
+                        <span
+                            className="listItemHeart"
+                            onClick={() => this.removeFromFavorites(favorite)}
+                        >
+                            ❤️
+                        </span>
+                        </li>
+                    ))}
+                    </ul>
+                </div>
+                </Popup>
+
+
                 <audio src={this.state.surahAudio} className="quranPlayer" controls  autoPlay></audio>
                 <div className="buttons">
                   <div className="icon next">

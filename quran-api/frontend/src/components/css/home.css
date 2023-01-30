@@ -32,6 +32,7 @@ body
 }
 .player .ayah
 {
+    margin-right:19rem;
     padding:  10px 0;
     font-size: 20px;
     color: #fff;
@@ -108,3 +109,98 @@ body
     background: linear-gradient(to bottom ,#000 , #434343);
     color: #fff;
 }
+
+
+/*  */
+
+.favorite-header {
+/* display: flex; */
+/* align-items: center; */
+/* justify-content: center; */
+/* position: absolute; */
+/* top: 20px;
+right: 20px; */
+cursor: pointer;
+font-size: 35px;
+color: #ff0000;
+/* position: sticky; */
+}
+
+/*  */
+
+.favorite-header {
+    /* display: flex; */
+    /* align-items: center; */
+    /* margin-bottom: 20px; */
+    /* space between icon and text */
+    
+  }
+  
+  .favorite-header-text {
+    /* position: sticky; */
+    margin-left: 7px;
+    font-size: 20px;
+  }
+  .favorite-header-text {
+    background-color: #228B22;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    /* border style non */
+    border: none;
+    cursor: pointer;
+    }
+  
+  .fas.fa-heart {
+    font-size: 20px;
+    color: red;
+    cursor: pointer;
+  }
+  
+  .favorited {
+    color: red;
+    cursor: pointer;
+  }
+  
+  .favorite {
+    color: gray;
+    cursor: pointer;
+  }
+  
+  /* popup */
+
+  .popupContainer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    align-items: center;
+
+    }
+    
+    .popupHeader {
+    margin: 0;
+    }
+    
+    .popupList {
+    list-style: none;
+    padding: 0;
+    }
+    
+    .listItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    }
+    
+    .listItemText {
+        color: white;
+    }
+    
+    .listItemHeart {
+    cursor: pointer;
+    }
+    
+    
+    
+    
