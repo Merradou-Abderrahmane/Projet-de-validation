@@ -7,6 +7,7 @@ class Home extends Component {
         super(props);
         this.state = {
         surahs: [],
+        favorites: [],
         };
     }
     
@@ -15,8 +16,43 @@ class Home extends Component {
         .then(res => {
             const surahs = res.data.data;
             this.setState({ surahs });
-        })        
-        }       
+        })    
+        
+        axios.get('http://127.0.0.1:8000/api/surahs')
+        .then(res => {
+            const favorites = res.data;
+            this.setState({ favorites });
+        })       
+
+        }    
+        
+        addToFavorites(surah) {
+            axios.post('http://127.0.0.1:8000/api/surahs', {
+                surah_id: surah.number,
+                name: surah.name,
+                english_name: surah.englishNameTranslation
+            })
+            .then(res => {
+                this.setState({
+                    favorites: [...this.state.favorites, surah]
+                });
+            });
+        }
+
+        removeFromFavorites(surah) {
+            axios.delete(`http://127.0.0.1:8000/api/surahs/${surah.number}`)
+            .then(res => {
+                this.setState({
+                    favorites: this.state.favorites.filter(favorite => favorite.number !== surah.number)
+                });
+            });
+        }
+        
+        isFavorite(surah) {
+            return this.state.favorites.some(favorite => favorite.number === surah.number);
+        }
+    
+    
 
         playSurah(surahNumber) {
             const audioPlayer = document.querySelector('.quranPlayer');
@@ -52,17 +88,23 @@ class Home extends Component {
                     <div className="surah-name">
                       {surah.name} - {surah.englishNameTranslation}
                     </div>
-                    <div className="favorite-icon">
-                      <i className="fas fa-heart"></i>
-                    </div>
+                    {this.isFavorite(surah) ? (
+                      <div className="favorited" onClick={() => this.removeFromFavorites(surah)}>
+                        <i className="fas fa-heart"></i>
+                      </div>
+                    ) : (
+                      <div className="favorite" onClick={() => this.addToFavorites(surah)}>
+                        <i className="far fa-heart"></i>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
             </div>
           </div>
         );
-      }
     }
+}
     
 
 export default Home;

@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SurahController;
+use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 // get all surahs favorite
-Route::get('/surahs', [SurahController::class, 'getFavorite']);
-Route::post('/surahs', [SurahController::class, 'addFavorite']);
-Route::delete('/surahs/{id}', [SurahController::class, 'removeFavorite']);
+Route::get('/surahs', [FavoriteController::class, 'getFavorites']);
+Route::post('/surahs', [FavoriteController::class, 'addFavorite']);
+Route::delete('/surahs/{id}', [FavoriteController::class, 'removeFavorite']);
