@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input id="name" type="text">
+    <button id="add" onclick="addName()">ADD</button>
+    <br><br>
+    
+    <table id="tab" border="1">  
+       
+    </table>
+     
+    <script>
+        const addName = () => {
+            // get input values using DOM
+            const name = document.getElementById('name').value;
+
+            // get the html table using DOM
+            const table = document.getElementsByTagName('table')[0]; 
+              
+            const newRow = table.insertRow(table.rows[0]);
+              
+            // add cells to the row
+            const cel1 = newRow.insertCell(0);
+              
+            // add values to the cells
+            cel1.innerHTML = name;
+
+            // reset the input value
+            document.getElementById('name').value = "";
+        }
+    </script>
+    
+    <div id="demo"></div>
+    <img id="img" src="2.jpg" alt="img" width="160" height="160">
+
+    <div id="div1"></div>
+
+    <script>
+        // update the innerHTML of demo div using DOM
+        document.getElementById("demo").innerHTML = "Hello world!";
+        
+        // update the source of image using DOM
+        document.getElementById("img").src = "1.png";
+        
+        // create a new paragraph element using DOM
+        const para = document.createElement("p");
+        const node = document.createTextNode("this is a new paragraph");
+        para.appendChild(node);
+        const element = document.getElementById("div1");
+        element.appendChild(para);
+    </script>
+
+    <script>
+        const Inscription = (age) => {
+            // use arrow function to return a value
+            const condition = () => age < 35 ? 'true' : 'false';
+            console.log(condition());
+        }
+        Inscription(40);
+    </script>
+
+</body>
+</html>
