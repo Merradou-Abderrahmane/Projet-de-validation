@@ -1,11 +1,11 @@
 # Here is an example of using git revert in a Git repository:
 
-## Now let's make some changes to the code
+## let's make some changes to the code
 =>changes in revert.html file , i added a new paragraph
 $ git add .
 $ git commit -m "commit to be reverted"
 
-# Oops, we made a mistake and want to revert this change
+## Oops, we made a mistake and want to revert this change
 $ git log
 commit 7f82cce36ff9c2b6cf20c6a8b6d96fa6f82fa6c7 (HEAD -> master)
 Author: Merradou Abderrahmane <email@example.com>
