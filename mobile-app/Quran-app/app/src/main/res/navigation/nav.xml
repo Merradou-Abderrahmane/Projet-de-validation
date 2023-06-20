@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav"
+    app:startDestination="@id/itemFragment2">
+    <fragment
+        android:id="@+id/itemFragment2"
+        android:name="com.example.projet_validation.Ui.ItemFragment"
+        android:label="ItemFragment" >
+        <action
+            android:id="@+id/action_itemFragment2_to_favoritelistFragment"
+            app:destination="@id/favoritelistFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritelistFragment"
+        android:name="com.example.projet_validation.Ui.favoritelistFragment"
+        android:label="favoritelistFragment" >
+        <action
+            android:id="@+id/action_favoritelistFragment_to_itemFragment2"
+            app:destination="@id/itemFragment2" />
+    </fragment>
+</navigation>
