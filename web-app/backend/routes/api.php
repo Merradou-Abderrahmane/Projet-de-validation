@@ -22,3 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/surahs', [FavoriteController::class, 'getFavorites']);
 Route::post('/surahs', [FavoriteController::class, 'addFavorite']);
 Route::delete('/surahs/{id}', [FavoriteController::class, 'removeFavorite']);
+
+Route::get('ListFavorite', [FavoriteController::class, 'ListFavorite']);
+Route::get('getAll', [FavoriteController::class, 'getAll']);
+Route::post('store', [FavoriteController::class, 'store']);
+Route::get('delete/{id}', [FavoriteController::class, 'delete']);

@@ -20,6 +20,7 @@ class Home extends Component {
             this.setState({ surahs });
         })    
         
+        
         axios.get('http://127.0.0.1:8000/api/surahs')
         .then(res => {
             const favorites = res.data;
