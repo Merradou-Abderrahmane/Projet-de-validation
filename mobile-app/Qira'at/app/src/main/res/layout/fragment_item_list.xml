@@ -27,7 +27,6 @@
         android:layout_height="731dp"
         android:background="#FAFCFC"
         android:clipToPadding="false"
-        android:padding="4dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -10,7 +10,7 @@ interface ApiServicesInterface {
 
 
     @GET("getItem/{params}")
-    suspend fun getItem(@Path("params") params:String): List<Univer>
+    suspend fun getItem(@Path("params") params:String): List<Surah>
 
 
 

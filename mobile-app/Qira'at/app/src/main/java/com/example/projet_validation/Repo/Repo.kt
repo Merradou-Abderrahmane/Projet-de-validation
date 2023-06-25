@@ -1,6 +1,6 @@
 package com.example.projet_validation.Repo
 
-import com.example.projet_validation.DAO.Dao
+import Dao
 import com.example.projet_validation.Model.Surah
 import com.example.projet_validation.Model.User
 

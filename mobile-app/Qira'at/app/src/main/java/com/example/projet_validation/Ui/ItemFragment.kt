@@ -1,5 +1,6 @@
 package com.example.projet_validation.Ui
 
+import android.media.MediaPlayer
 import androidx.recyclerview.widget.GridLayoutManager
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -16,9 +17,15 @@ class ItemFragment : BaseFragment<FragmentItemListBinding>(FragmentItemListBindi
 
     private val viewModel :ViewModel by viewModels()
     private lateinit var adapter: ItemAdapter
+    lateinit var mediaPlayer: MediaPlayer
+
+    companion object {
+        var playingSurah: Int = 0
+    }
 
     override fun init(view: View) {
-        adapter = ItemAdapter(arrayListOf(),view.findNavController())
+        mediaPlayer = MediaPlayer()
+        adapter = ItemAdapter(arrayListOf(),view.findNavController(), mediaPlayer)
         binding.apply {
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = adapter

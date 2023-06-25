@@ -53,13 +53,12 @@ class FavoriteAdapter(private val Surah: ArrayList<Surah>, navController: NavCon
             CoroutineScope(Dispatchers.Main).launch {
 
                 Repo().delete(surah.number)
-                // Success message
                 if (position != -1) {
 
                     Surah.removeAt(position)
                     notifyItemRemoved(position)
                 }
-                Toast.makeText(holder.itemView.context, "Film deleted successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(holder.itemView.context, "Surah deleted successfully", Toast.LENGTH_SHORT).show()
 
             }
            }
